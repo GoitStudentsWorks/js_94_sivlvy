@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Food Market</title>
+		<link rel="icon" type="image/svg" href="/js_94_sivlvy/assets/favicon-5e2e9f09.svg" />
+		
+		
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+			integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		
+		<script type="module" crossorigin src="/js_94_sivlvy/commonHelpers.js"></script>
+		<link rel="modulepreload" crossorigin href="/js_94_sivlvy/assets/vendor-c374a7a2.js">
+		<link rel="modulepreload" crossorigin href="/js_94_sivlvy/assets/modal-subscription-1578d01a.js">
+		<link rel="stylesheet" href="/js_94_sivlvy/assets/modal-subscription-20cd9a08.css">
+	</head>
+	<body>
+		<header class="header">
+	<div class="container container-header">
+		<div class="wrapper-header">
+			<a href="./index.html" class="header-logo">
+				<svg width="28" height="28" class="icon icon-logo-icon-mob">
+					<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-logo-icon-mob"></use>
+				</svg>
+				<p class="header-logo-text">Food Boutique</p>
+			</a>
+			<nav class="header-nav">
+				<a href="./index.html" class="home-link">Home</a>
+				<a href="./cart.html" class="cart-link">
+					<div class="icon-wrapper">
+						<svg width="20" height="20" class="icon-cart-svg">
+							<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-cart-mob"></use>
+						</svg>
+					</div>
+					<p class="cart-link-text">
+						Cart(<span class="js-cart-counter"></span>)
+					</p>
+				</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+		<main>
+			<section class="cart-section">
+	<div class="container cart-container">
+		<a href="/cart.html" class="logo-block">
+			<div class="icon-wrap">
+				<svg width="18" height="18" class="icon icon-cart-mob">
+					<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-cart-mob"></use>
+				</svg>
+			</div>
+			<p class="logo-text">Cart (<span class="js-cart-counter"></span>)</p>
+		</a>
+
+		<div class="cart-empty-wrapper">
+			<section class="cart-empty">
+	<a href="/cart.html" class="logo-block-empty">
+		<div class="icon-wrap">
+			<svg width="18" height="18" class="icon icon-cart-mob">
+				<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-cart-mob"></use>
+			</svg>
+		</div>
+		<p class="logo-text">Cart (<span class="js-cart-counter"></span>)</p>
+	</a>
+	<div class="cart-info-wrap">
+			<picture>
+				<source
+					srcset="/js_94_sivlvy/assets/cart-empty-desk-8d1fa0db.png , /js_94_sivlvy/assets/cart-empty-desk-2x-36112229.png "
+					media="(min-width: 1440px)"
+				/>
+				<source
+					srcset="/js_94_sivlvy/assets/cart-empty-desk-8d1fa0db.png , /js_94_sivlvy/assets/cart-empty-desk-2x-36112229.png "
+					media="(min-width: 768px)"
+				/>
+				<source
+					srcset="/js_94_sivlvy/assets/cart-empty-mob-88cc64a6.png , /js_94_sivlvy/assets/cart-empty-mob-2x-9530797e.png "
+					media="(min-width: 375px)"
+				/>
+				<img
+					src="/src/images/cart-content/cart-empty/cart-empty-desk.png"
+					alt="yellow shopping basket"
+				/>
+			</picture>
+		</div>
+	<div class="empty-frame">
+		<p class="empty-text">
+			Your basket is <span class="empty-focus">empty...</span>
+		</p>
+		<p class="empty-descr">
+			Go to the main page to select your favorite products and add them to
+			the cart.
+		</p>
+	</div>
+	</div>
+</section>
+
+		</div>
+	</div>
+	<div class="cart-content-wrap">
+		<section class="cart" id="cart">
+	<div class="container container-cart">
+		<div class="cart__title-thumb">
+			<button class="cart__button" type="button">
+				<svg class="cart__icon">
+					<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-cart-desk"></use>
+				</svg>
+			</button>
+			<h2 class="cart__title">
+				Cart (<span class="cart-quantity cart__item-count js-cart-counter"></span>)
+			</h2>
+		</div>
+		<div class="cart__wrapper">
+			<div class="cart__desctop-thumb">
+				<div class="cart__added-list">
+					<button class="cart__delete-button" type="button">
+						Delete all
+						<svg width="24" height="24" class="icon icon-icon-close">
+							<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-icon-close"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<div class="cart__products-wrap">
+				<ul class="cart__products js-cart-products">
+				</ul>
+				<div class="container container-product-list">
+					<div class="total__order-thumb">
+						<p class="your__order-title">Your Order</p>
+						<div class="total__price-thumb">
+							<p class="cart__total-title">Total</p>
+							<p class="cart__sum">
+								Sum:
+								<span class="total__price" id="cart__total"></span>
+							</p>
+						</div>
+
+						<form class="checkout__field">
+							<label for="cart__client-email" class="cart__input-label">
+								<span class="placeholder__prefix">Mail:</span>
+								<input class="cart__basket-input" type="email" name="email"
+									placeholder="Enter your email" />
+							</label>
+
+							<button type="submit" class="cart__submit-button" aria-label="Checkout cart">
+								Checkout
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	</div>
+	<div class="cart-content-modal">
+		<!-- <section class="cart-order">
+	<div class="container">
+		<div class="order-wrap">
+			<h2 class="your-order-title">YOUR ORDER</h2>
+			<div class="total-cost">
+				<p class="total">Total</p>
+				<p class="sum">Sum</p>
+				<p class="amount">$<span class="js-pay">12,94</span></p>
+			</div>
+			<form>
+				<div class="mail-field">
+					<label for="email">Mail:</label>
+					<input type="email" id="email" class="mail-input" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+						placeholder="Enter your email" />
+				</div>
+				<button class="checkout-btn" data-modal-open type="submit">
+					Checkout
+				</button>
+			</form>
+		</div>
+	</div>
+</section> -->
+	</div>
+</section>
+		</main>
+		<footer class="footer">
+	<div class="container footer-container">
+		<div class="footer-logo">
+			<div class="footer-icons">
+				<a href="./index.html" class="link-logo-footer">
+					<svg width="28" height="28" class="icon icon-logo-icon-mob">
+						<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-icon-logo-footer"></use>
+					</svg>
+					<p class="link-logo-text">Food Boutique</p>
+				</a>
+				<ul class="list-social">
+					<li class="item-social">
+						<a target="_blank" href="https://www.facebook.com/goITclub/">
+							<svg class="logo-social" width="40" height="40">
+								<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-facebook"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="item-social">
+						<a target="_blank" href="https://www.instagram.com/goitclub/">
+							<svg class="logo-social" width="40" height="40">
+								<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-instagram"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="item-social">
+						<a target="_blank" href="https://www.youtube.com/c/GoIT">
+							<svg class="logo-social" width="40" height="40">
+								<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-youtube"></use>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="motto">
+				<h2 class="first-motto">Discover the Variety of Flavors and Quality</h2>
+				<p class="second-motto">
+					An online store where you will find fresh, natural and delicious
+					products for a healthy life and unforgettable gastronomic adventures.
+				</p>
+			</div>
+		</div>
+		<div class="bottom-footer">
+			<p class="email-title">Subscribe and learn about new products!</p>
+			<form class="form-footer">
+				<label class="email-label">
+					<input
+						class="input-label"
+						type="email"
+						name="email"
+						pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
+						placeholder="Email"
+					/>
+				</label>
+				<button type="submit" class="subscribe">Send</button>
+			</form>
+		</div>
+		<div class="about">
+			<div class="services-list">
+				<p class="services">Food Boutique. All rights reserved.</p>
+				<div class="privacy-wrap">
+					<p class="services-one">Privacy Policy</p>
+					<span class="slash">/</span>
+					<p class="services-one">Terms of Service</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- MODAL SUBSCRIPTION -->
+
+<div class="modal-backdrop-subscription is-hidden">
+	<div class="modal-container">
+		<div class="modal-subscription is-hidden">
+			<div class="modal_subcont">
+				<button class="close">
+					<svg class="icon-close">
+						<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-icon-close"></use>
+					</svg>
+				</button>
+				<div class="modal-subtext">
+					<h2 class="title-sub">
+						Thanks for subscribing for
+						<span class="span-text">new</span> products
+					</h2>
+					<p class="paragraph-sub">
+						We promise you organic and high-quality products that will meet your
+						expectations. Please stay with us and we promise you many pleasant
+						surprises.
+					</p>
+					<div class="modal-subscription-img"></div>
+					<!-- <picture class="modal-subscription-img">
+						<source
+							media="(min-width: 1440px)"
+							srcset="
+								../../images/footer-modal/footer-modal-desk.png,
+								../../images/footer-modal/footer-modal-desk.png
+							"
+						/>
+						<source
+							media="(min-width: 768px)"
+							srcset="
+								../../images/footer-modal/footer-modal-table.png,
+								../../images/footer-modal/footer-modal-table.png
+							"
+						/>
+						<source
+							media="(max-width: 767px)"
+							srcset="
+								../../images/footer-modal/footer-modal-desk.png,
+								../../images/footer-modal/footer-modal-desk.png
+							"
+						/>
+
+						<img
+							src="../../images/footer-modal/footer-modal-desk.png"
+							alt="vegetable"
+							class="modal-img"
+						/>
+					</picture> -->
+				</div>
+			</div>
+		</div>
+		<div class="modal-unsubscription is-hidden">
+			<div class="modal-unsubcont">
+				<button class="close">
+					<svg class="icon-close">
+						<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-icon-close"></use>
+					</svg>
+				</button>
+				<div class="modal-unsubtext">
+					<h3 class="title-unsub">
+						This <span class="span-text">email address</span> has already been
+						entered
+					</h3>
+					<p class="paragraph-unsub">
+						You have already subscribed to our new products. Watch for offers at
+						the mailing address.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+		<!-- ------------------------------Модальне вікно---------------------- -->
+		<div class="backdrop is-hidden" data-modal>
+			<div class="modal-order">
+				<button type="button" class="close-modal-btn" data-modal-close>
+					<svg width="28" height="28">
+						<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-ion_close-sharp"></use>
+					</svg>
+				</button>
+				<div class="picture-wrap">
+					<picture>
+						<source
+							srcset="/js_94_sivlvy/assets/cart-order-desk-585568bd.png , /js_94_sivlvy/assets/cart-order-desk-2x-80e5f383.png "
+							media="(min-width: 1166px)"
+						/>
+						<source
+							srcset="/js_94_sivlvy/assets/cart-order-mob-a15eab4b.png , /js_94_sivlvy/assets/cart-order-mob-2x-2aeeea6e.png "
+							media="(min-width: 768px)"
+						/>
+						<source
+							srcset="/js_94_sivlvy/assets/cart-order-mob-a15eab4b.png , /js_94_sivlvy/assets/cart-order-mob-2x-2aeeea6e.png "
+							media="(min-width: 320px)"
+						/>
+						<img
+							src="/src/images/cart-content/cart-order/cart-order-desk.png"
+							alt="red totatoes"
+						/>
+					</picture>
+				</div>
+
+				<p class="modal-title">Order success</p>
+				<p class="modal-text">
+					Thank you for shopping at Food Boutique. Your order has been received
+					and is now being freshly prepared just for you! Get ready to indulge
+					in nourishing goodness, delivered right to your doorstep. We're
+					thrilled to be part of your journey to better health and happiness.
+				</p>
+			</div>
+		</div>
+		<!-- ------------------------------------------------------------------ -->
+		
+		<!-- <script type="module" src="./js/main.js"></script> -->
+	</body>
+</html>

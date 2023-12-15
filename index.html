@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Food Market</title>
+		
+		
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/slim-select@latest/dist/slimselect.css"
+		/>
+		<link rel="icon" type="image/svg" href="/js_94_sivlvy/assets/favicon-5e2e9f09.svg" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+			integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		
+		<script type="module" crossorigin src="/js_94_sivlvy/commonHelpers2.js"></script>
+		<link rel="modulepreload" crossorigin href="/js_94_sivlvy/assets/vendor-c374a7a2.js">
+		<link rel="modulepreload" crossorigin href="/js_94_sivlvy/assets/modal-subscription-1578d01a.js">
+		<link rel="stylesheet" href="/js_94_sivlvy/assets/modal-subscription-20cd9a08.css">
+	</head>
+	<body>
+		
+		<header class="header">
+	<div class="container container-header">
+		<div class="wrapper-header">
+			<a href="./index.html" class="header-logo">
+				<svg width="28" height="28" class="icon icon-logo-icon-mob">
+					<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-logo-icon-mob"></use>
+				</svg>
+				<p class="header-logo-text">Food Boutique</p>
+			</a>
+			<nav class="header-nav">
+				<a href="./index.html" class="home-link">Home</a>
+				<a href="./cart.html" class="cart-link">
+					<div class="icon-wrapper">
+						<svg width="20" height="20" class="icon-cart-svg">
+							<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-cart-mob"></use>
+						</svg>
+					</div>
+					<p class="cart-link-text">
+						Cart(<span class="js-cart-counter"></span>)
+					</p>
+				</a>
+			</nav>
+		</div>
+	</div>
+</header>
+
+		<main>
+			<section class="hero-section">
+	<div class="container container-hero">
+		<h1 class="hero-title">Welcome to the <span>Food</span> Boutique!</h1>
+		<p class="hero-descr">
+			With Food Boutique, you're not just subscribing to food, you're signing up for a fresher, fitter, and happier you.
+		</p>
+
+		<div class="images">
+			<picture>
+				<source
+					srcset="/js_94_sivlvy/assets/hero-bg-desk-dfce4e24.jpg 1x, /js_94_sivlvy/assets/hero-bg-desk-2x-e84d1cb0.jpg 2x"
+					media="(min-width:1440px)"
+					width="1240"
+					height="250"
+				/>
+				<source
+					srcset="/js_94_sivlvy/assets/hero-bg-table-4af3d966.jpg 1x, /js_94_sivlvy/assets/hero-bg-table-2x-410e78b4.jpg 2x"
+					media="(min-width:768px)"
+					width="704"
+					height="580"
+				/>
+				<source
+					srcset="/js_94_sivlvy/assets/hero-bg-mob-63382c28.jpg 1x, /js_94_sivlvy/assets/hero-bg-mob-2x-9d3bcbc9.jpg 2x"
+					media="(min-width:320px)"
+					width="335"
+					height="480"
+				/>
+				<img
+					src="/js_94_sivlvy/assets/hero-bg-mob-63382c28.jpg"
+					alt="Vegetables"
+					width="767"
+					height="400"
+					class="hero-img-bg"
+				/>
+			</picture>
+			<svg class="icon icon-organic-food" width="100" height="100">
+				<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-organic-food"></use>
+			</svg>
+		</div>
+	</div>
+</section>
+
+			<section class="filters-section">
+	<div class="container filter-container">
+		<p class="filters-name">Filters:</p>
+		<div class="filters-wrapper">
+			<form class="filters-form" id="filters-search-form">
+				<div class="filters-search-box">
+					<input type="text" name="searchQuery" autocomplete="off" class="filters-search-input"
+						placeholder="Search for anything" />
+					<button type="submit" class="filters-search-button">
+						<svg class="filterts-icon-search" width="20px" height="20px">
+							<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-icon-find"></use>
+						</svg>
+					</button>
+				</div>
+			</form>
+			<select class="filters-categories-select"></select>
+		</div>
+
+	</div>
+</section>
+			<section class="home-section">
+	<div class="main-container container">
+		<div class="container-main-content">
+			<section class="main-content">
+	<div class="main-content-nothing">
+		<h2 class="main-content-nothing-title">Nothing was found for the selected <span>filters...</span></h2>
+		<p class="main-content-nothing-text">Try adjusting your search parameters or browse our range by other
+			criteria to
+			find the perfect product for you.</p>
+	</div>
+	<div class=" card-container container">
+		<span class="loader"></span>
+		<ul class="product-list">
+
+		</ul>
+
+		<div class="pagination">
+			<ul></ul>
+		</div>
+	</div>
+</section>
+
+		</div>
+		<div class="container-sidebar">
+			<aside class="sidebar">
+	<section class="popular-section">
+		<p class="popular-title">Popular products</p>
+		<div class="container-popular">
+			<ul class="popular-list"></ul>
+		</div>
+	</section>
+	<section class="discount-products">
+		<p class="discount-title">Discount products</p>
+		<div class="container-discount">
+			<ul class="discount-list"></ul>
+		</div>
+	</section>
+</aside>
+
+		</div>
+	</div>
+	<div class="product-modal-backdrop">
+		<div class="container container-product-modal">
+			<div class="productmodal is-hidden" id="productmodal" data-mobmenu></div>
+		</div>
+	</div>
+</section>
+
+			<!-- <section class="main-content">
+	<div class="main-content-nothing">
+		<h2 class="main-content-nothing-title">Nothing was found for the selected <span>filters...</span></h2>
+		<p class="main-content-nothing-text">Try adjusting your search parameters or browse our range by other
+			criteria to
+			find the perfect product for you.</p>
+	</div>
+	<div class=" card-container container">
+		<span class="loader"></span>
+		<ul class="product-list">
+
+		</ul>
+
+		<div class="pagination">
+			<ul></ul>
+		</div>
+	</div>
+</section>
+ -->
+<!-- 
+			<div class="test">
+				<section class="main-content">
+	<div class="main-content-nothing">
+		<h2 class="main-content-nothing-title">Nothing was found for the selected <span>filters...</span></h2>
+		<p class="main-content-nothing-text">Try adjusting your search parameters or browse our range by other
+			criteria to
+			find the perfect product for you.</p>
+	</div>
+	<div class=" card-container container">
+		<span class="loader"></span>
+		<ul class="product-list">
+
+		</ul>
+
+		<div class="pagination">
+			<ul></ul>
+		</div>
+	</div>
+</section>
+
+				<aside class="sidebar">
+	<section class="popular-section">
+		<p class="popular-title">Popular products</p>
+		<div class="container-popular">
+			<ul class="popular-list"></ul>
+		</div>
+	</section>
+	<section class="discount-products">
+		<p class="discount-title">Discount products</p>
+		<div class="container-discount">
+			<ul class="discount-list"></ul>
+		</div>
+	</section>
+</aside>
+
+			</div> -->
+
+			
+
+		</main>
+		<footer class="footer">
+	<div class="container footer-container">
+		<div class="footer-logo">
+			<div class="footer-icons">
+				<a href="./index.html" class="link-logo-footer">
+					<svg width="28" height="28" class="icon icon-logo-icon-mob">
+						<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-icon-logo-footer"></use>
+					</svg>
+					<p class="link-logo-text">Food Boutique</p>
+				</a>
+				<ul class="list-social">
+					<li class="item-social">
+						<a target="_blank" href="https://www.facebook.com/goITclub/">
+							<svg class="logo-social" width="40" height="40">
+								<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-facebook"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="item-social">
+						<a target="_blank" href="https://www.instagram.com/goitclub/">
+							<svg class="logo-social" width="40" height="40">
+								<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-instagram"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="item-social">
+						<a target="_blank" href="https://www.youtube.com/c/GoIT">
+							<svg class="logo-social" width="40" height="40">
+								<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-youtube"></use>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="motto">
+				<h2 class="first-motto">Discover the Variety of Flavors and Quality</h2>
+				<p class="second-motto">
+					An online store where you will find fresh, natural and delicious
+					products for a healthy life and unforgettable gastronomic adventures.
+				</p>
+			</div>
+		</div>
+		<div class="bottom-footer">
+			<p class="email-title">Subscribe and learn about new products!</p>
+			<form class="form-footer">
+				<label class="email-label">
+					<input
+						class="input-label"
+						type="email"
+						name="email"
+						pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
+						placeholder="Email"
+					/>
+				</label>
+				<button type="submit" class="subscribe">Send</button>
+			</form>
+		</div>
+		<div class="about">
+			<div class="services-list">
+				<p class="services">Food Boutique. All rights reserved.</p>
+				<div class="privacy-wrap">
+					<p class="services-one">Privacy Policy</p>
+					<span class="slash">/</span>
+					<p class="services-one">Terms of Service</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- MODAL SUBSCRIPTION -->
+
+<div class="modal-backdrop-subscription is-hidden">
+	<div class="modal-container">
+		<div class="modal-subscription is-hidden">
+			<div class="modal_subcont">
+				<button class="close">
+					<svg class="icon-close">
+						<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-icon-close"></use>
+					</svg>
+				</button>
+				<div class="modal-subtext">
+					<h2 class="title-sub">
+						Thanks for subscribing for
+						<span class="span-text">new</span> products
+					</h2>
+					<p class="paragraph-sub">
+						We promise you organic and high-quality products that will meet your
+						expectations. Please stay with us and we promise you many pleasant
+						surprises.
+					</p>
+					<div class="modal-subscription-img"></div>
+					<!-- <picture class="modal-subscription-img">
+						<source
+							media="(min-width: 1440px)"
+							srcset="
+								../../images/footer-modal/footer-modal-desk.png,
+								../../images/footer-modal/footer-modal-desk.png
+							"
+						/>
+						<source
+							media="(min-width: 768px)"
+							srcset="
+								../../images/footer-modal/footer-modal-table.png,
+								../../images/footer-modal/footer-modal-table.png
+							"
+						/>
+						<source
+							media="(max-width: 767px)"
+							srcset="
+								../../images/footer-modal/footer-modal-desk.png,
+								../../images/footer-modal/footer-modal-desk.png
+							"
+						/>
+
+						<img
+							src="../../images/footer-modal/footer-modal-desk.png"
+							alt="vegetable"
+							class="modal-img"
+						/>
+					</picture> -->
+				</div>
+			</div>
+		</div>
+		<div class="modal-unsubscription is-hidden">
+			<div class="modal-unsubcont">
+				<button class="close">
+					<svg class="icon-close">
+						<use href="/js_94_sivlvy/assets/icons-58c424f0.svg#icon-icon-close"></use>
+					</svg>
+				</button>
+				<div class="modal-unsubtext">
+					<h3 class="title-unsub">
+						This <span class="span-text">email address</span> has already been
+						entered
+					</h3>
+					<p class="paragraph-unsub">
+						You have already subscribed to our new products. Watch for offers at
+						the mailing address.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		
+	</body>
+</html>
